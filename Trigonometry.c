@@ -2,17 +2,17 @@
 #include <math.h>
 
 int main(){
-    int deg, q, a;//deg = degree, q = quadrant, a = alfa
-    char sin[5][10] = {"0", "1/2", "sqrt(2)/2", "sqrt(3)/2", "1"};//0 30 45 60 90 degrees
-    char cos[5][10] = {"1", "sqrt(3)/2", "sqrt(2)/2", "1/2", "0"};
-    char tan[5][10] = {"0", "sqrt(3)/3", "1", "sqrt(3)", "undefine"};
+    int deg, q, a, degin;//deg = degree, q = quadrant, a = alfa, degin = degrees input
+    char sinv[5][10] = {"0", "1/2", "sqrt(2)/2", "sqrt(3)/2", "1"};//0 30 45 60 90 degrees
+    char cosv[5][10] = {"1", "sqrt(3)/2", "sqrt(2)/2", "1/2", "0"};//0 30 45 60 90 degrees
+    char tanv[5][10] = {"0", "sqrt(3)/3", "1", "sqrt(3)", "undefine"};//0 30 45 60 90 degrees
     char sins, coss, tans;
 
-    printf("Enter degree : ");
-    scanf("%d", &deg);
+    printf("Enter the angle in degrees : ");
+    scanf("%d", &degin);
 
-    if(deg > 360 || deg < 360){
-        deg %= 360;
+    if(deg > 360 || deg < -360){
+        deg = degin % 360;
     }
 
     //check quadrant
@@ -52,32 +52,34 @@ int main(){
     //print values
     switch(a){
         case 0:
-            printf("sin = %c%s\n", sins, sin[0]);
-            printf("cos = %c%s\n", coss, cos[0]);
-            printf("tan = %c%s\n", tans, tan[0]);
+            printf("sin = %c%s\n", sins, sinv[0]);
+            printf("cos = %c%s\n", coss, cosv[0]);
+            printf("tan = %c%s\n", tans, tanv[0]);
             break;
         case 30:
-            printf("sin = %c%s\n", sins, sin[1]);
-            printf("cos = %c%s\n", coss, cos[1]);
-            printf("tan = %c%s\n", tans, tan[1]);
+            printf("sin = %c%s\n", sins, sinv[1]);
+            printf("cos = %c%s\n", coss, cosv[1]);
+            printf("tan = %c%s\n", tans, tanv[1]);
             break;
         case 45:
-            printf("sin = %c%s\n", sins, sin[2]);
-            printf("cos = %c%s\n", coss, cos[2]);
-            printf("tan = %c%s\n", tans, tan[2]);
+            printf("sin = %c%s\n", sins, sinv[2]);
+            printf("cos = %c%s\n", coss, cosv[2]);
+            printf("tan = %c%s\n", tans, tanv[2]);
             break;
         case 60:
-            printf("sin = %c%s\n", sins, sin[3]);
-            printf("cos = %c%s\n", coss, cos[3]);
-            printf("tan = %c%s\n", tans, tan[3]);
+            printf("sin = %c%s\n", sins, sinv[3]);
+            printf("cos = %c%s\n", coss, cosv[3]);
+            printf("tan = %c%s\n", tans, tanv[3]);
             break;
         case 90:
-            printf("sin = %c%s\n", sins, sin[4]);
-            printf("cos = %c%s\n", coss, cos[4]);
-            printf("tan = %c%s\n", tans, tan[4]);
+            printf("sin = %c%s\n", sins, sinv[4]);
+            printf("cos = %c%s\n", coss, cosv[4]);
+            printf("tan = %c%s\n", tans, tanv[4]);
             break;
         default:
-            printf("Error");
+            printf("sin = %f\n", sin(degin*0.0174532925));
+            printf("cos = %f\n", cos(degin*0.0174532925));
+            printf("tan = %f\n", tan(degin*0.0174532925));
             break;
     }
 
